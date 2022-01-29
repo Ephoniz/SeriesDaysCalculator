@@ -12,7 +12,19 @@ class DayCalculator
 
     def initialize(attributes)
         attributes.each do |name, value|
+            value = parse_string_to_float(value)
+
             send("#{name}=", value)
         end
+    end
+
+    private
+
+    def parse_string_to_float(str)
+        str.to_f if valid_float?(str)
+    end
+
+    def valid_float?(str)
+        !!Float(str) rescue false
     end
 end
