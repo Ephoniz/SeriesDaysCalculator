@@ -18,6 +18,14 @@ class DayCalculator
         end
     end
 
+    def total_time
+        chaptres * chaptre_length
+    end
+    
+    def total_days
+        (total_time / (time_per_day * 60)).ceil
+    end
+
     private
 
     def parse_string_to_float(str)

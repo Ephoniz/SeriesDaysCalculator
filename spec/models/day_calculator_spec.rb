@@ -48,5 +48,29 @@ RSpec.describe DayCalculator, type: :model do
             day_calculator = build :day_calculator, chaptres: 'unvalid_value'
             expect(day_calculator).not_to be_valid
         end
-    end   
+    end
+
+    describe "#total_time" do
+        context "will calculate the total amount of time needed for complete the tv show" do
+            it 'should properly calculate the total_time' do
+                day_calculator = build :day_calculator
+                expect(day_calculator.total_time).to eq(1350.0)
+
+            end
+        end
+    end
+
+    describe "#total_days" do
+        context "will calculate the total amount of days needed based on the time_per_day" do
+            it 'should properly calculate the total amount of days' do
+                day_calculator = build :day_calculator
+                expect(day_calculator.total_days).to eq(15)
+            end
+
+            it 'should round to the highest value when odd value' do
+                day_calculator = build :day_calculator, time_per_day: 2
+                expect(day_calculator.total_days).to eq(12)
+            end
+        end
+    end
 end
