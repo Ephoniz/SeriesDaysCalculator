@@ -50,6 +50,22 @@ RSpec.describe DayCalculator, type: :model do
         end
     end
 
+    describe "#get_all_calculations" do
+        let(:valid_attributes) do
+            {
+                total_time: 22.5,
+                total_days: 15,
+                chaptres_per_day: 2,
+                total_weeks: 5
+            }
+        end
+
+        it 'should return every calculation needed to be displayed' do
+            day_calculator = build :day_calculator
+            expect(day_calculator.get_all_calculations).to eq(valid_attributes)
+        end
+    end
+
     describe "#total_time" do
         context "will calculate the total amount of time needed for complete the tv show" do
             it 'should properly calculate the total_time' do

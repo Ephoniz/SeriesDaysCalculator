@@ -18,6 +18,15 @@ class DayCalculator
         end
     end
 
+    def get_all_calculations
+        {
+            total_time: total_time / 60,
+            total_days: total_days,
+            chaptres_per_day: chaptres_per_day,
+            total_weeks: total_weeks
+        }
+    end
+
     def total_time
         chaptres * chaptre_length
     end
