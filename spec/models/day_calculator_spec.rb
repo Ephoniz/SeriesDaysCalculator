@@ -68,8 +68,17 @@ RSpec.describe DayCalculator, type: :model do
             end
 
             it 'should round to the highest value when odd value' do
-                day_calculator = build :day_calculator, time_per_day: 2
-                expect(day_calculator.total_days).to eq(12)
+                day_calculator = build :day_calculator, time_per_day: 3
+                expect(day_calculator.total_days).to eq(8)
+            end
+        end
+    end
+
+    describe "#chaptres_per_day" do
+        context "will calculate the maximum amount of chaptres per day" do
+            it 'should properly calculate the chaptres_per_day' do
+                day_calculator = build :day_calculator
+                expect(day_calculator.chaptres_per_day).to eq(2)
             end
         end
     end
