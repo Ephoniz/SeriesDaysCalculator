@@ -82,4 +82,13 @@ RSpec.describe DayCalculator, type: :model do
             end
         end
     end
+
+    describe '#total_weeks' do
+        context "will calculate the total amount of weeks needed" do
+            it 'should properly calculate the total_weeks' do
+                day_calculator = build :day_calculator
+                expect(day_calculator.total_weeks).to eq(5)
+            end
+        end
+    end
 end

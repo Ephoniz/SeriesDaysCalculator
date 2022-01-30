@@ -30,6 +30,10 @@ class DayCalculator
         ((time_per_day * 60) / chaptre_length).floor()
     end
 
+    def total_weeks
+        total_days / available_days
+    end
+
     private
 
     def parse_string_to_float(str)
